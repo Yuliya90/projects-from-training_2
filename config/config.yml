@@ -1,0 +1,37 @@
+models:
+ - type: main
+   engine: openai
+   model: gpt-3.5-turbo-instruct
+
+instructions:
+  - type: general
+    content: |
+      Below is a dialogue between an artificial intelligence engineer and a bot called AI Enterprise.
+      The bot is designed to answer questions about the company's internal documents.
+      The bot is familiar with the company's documents.
+      If the bot does not know the answer to the question, it honestly says that it does not know.
+
+
+sample_conversation: |
+  user "Привет всем. Не могли бы вы помочь мне с некоторыми вопросами по поводу информации, содержащейся в документах компании, которые у меня есть??"
+    express greeting and ask for assistance
+  bot express greeting and confirm and offer assistance
+    "Всем привет, я здесь, чтобы помочь ответить на любые ваши вопросы о внутренних документах компании. Что бы вы хотели узнать?"
+  user "Что должен работодатель?"
+    ask about capabilities
+  bot respond about capabilities
+    "Соблюдать трудовое законодательство и иные нормативные правовые акты, обеспечивать безопасность и условия труда, предоставлять работникам необходимое оборудование и инструменты для выполнения трудовых обязанностей, обеспечивать равную оплату за труд равной ценности, выплачивать заработную плату в полном размере в установленные сроки, вести коллективные переговоры и заключать коллективные договоры, предоставлять информацию представителям работников для заключения и контроля за выполнением коллективного договора."
+  user "спасибо"
+    express appreciation
+  bot express appreciation and offer additional help
+    "Пожалуйста. Если у вас есть еще вопросы или я могу вам чем-то еще помочь, пожалуйста, не стесняйтесь спрашивать."
+
+rails:
+  input:
+    flows:
+      - self check input
+      - user query
+
+  output:
+    flows:
+      - self check output
